@@ -1,8 +1,9 @@
 <?php
-
-return [
+$config_plugins = [
     'plugins' => [
         'MultipleLocalAuth' => [ 'namespace' => 'MultipleLocalAuth' ],
-        'SamplePlugin' => ['namespace' => 'SamplePlugin'],
+
     ]
 ];
+
+return $config_plugins;

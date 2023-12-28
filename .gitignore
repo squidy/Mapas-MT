@@ -2,3 +2,5 @@ docker-data
 node_modules
 vendor
 .env
+docker/common/mailer.php
+app-backups

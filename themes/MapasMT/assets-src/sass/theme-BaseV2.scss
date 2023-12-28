@@ -1,0 +1,92 @@
+@use 'sass:color';
+
+// COLORS
+$black: #1E1E1E;
+$error: #FF2D2D;
+$gray-100: #F5F5F5;
+$gray-300: #C4C4C4;
+$gray-700: #4E4E4E;
+$warning: #F07B07;
+$white: #FFFFFF;
+
+// Default lightness deltas
+$lightness-300: 25%;
+$lightness-700: 25%;
+
+// Brand colors
+$primary-500: #0074C1;
+$secondary-500: #D50200;
+
+// Entities colors
+$opportunities-500: #D50200;
+$events-500: #9C4EC7;
+$agents-500: #EF7B45;
+$projects-500: #0074C1;
+$spaces-500: #498200;
+
+$seals-500: #1E1E1E;
+
+// Feedback colors
+$danger-500: #EF1010;
+$success-500: #498200;
+$warning-500: #FF9F1C;
+$helper-500: #0074C1;
+
+// home
+$home-opportunities: #FF5857;
+$home-feature: #75C8FF;  
+$home-register: #002842;
+
+// // Neutral colors
+// $low-500: #1E1E1E;
+// $high-500: #FFFFFF;
+
+// // FONTS
+// $font-body: 'Open Sans', sans-serif;
+// $font-headings: 'Open Sans', sans-serif;
+
+// // Borders radius
+// $border-radius-xs: 4px;
+// $border-radius-sm: 8px;
+// $border-radius-pill: 64px;
+
+// // Borders
+// $border-hairline: 1px solid;
+// $border-solid: 2px solid;
+
+// // Shadows
+// $shadow-lv-1: 0px 4px 8px rgba(0, 0, 0, 0.16);
+// $shadow-lv-2: 0px 8px 16px rgba(0, 0, 0, 0.16);
+// $shadow-lv-3: 0px 8px 24px rgba(0, 0, 0, 0.16);
+// $shadow-lv-4: 0px 16px 48px rgba(0, 0, 0, 0.16);
+// $shadow-lv-1-up: 0px -4px 8px rgba(0, 0, 0, 0.16);
+
+@import '../../../BaseV2/assets-src/sass/theme-BaseV2';
+
+
+.main-footer .theme-logo.onlyImg .theme-logo__logo--img img {
+    max-height: 5rem;
+    @media (min-width: 800px) {
+        margin-bottom: 4rem;
+    }
+}
+
+.pa-footer-support {
+    font-size: --mc-font-size-xs;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 6rem;
+
+    @media (max-width: 800px) {
+        margin-bottom: 4rem;
+    }
+
+    > a {
+        color: $primary-500;
+        text-decoration: none;
+    }
+}
+
+.mc-header-logo {
+    width: 146.14px;
+}
