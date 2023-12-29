@@ -3,6 +3,10 @@ FROM hacklab/mapasculturais:7.3.2
 COPY themes /var/www/src/themes
 COPY plugins /var/www/src/plugins
 
+RUN apt-get update && apt-get install -y tzdata
+ENV TZ=America/Cuiaba
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 WORKDIR /var/www/src
 RUN pnpm install --recursive && pnpm run build 
 WORKDIR /var/www
