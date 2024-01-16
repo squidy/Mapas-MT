@@ -4,9 +4,8 @@ namespace MapasMT;
 use MapasCulturais\App;
 
 
-// class Theme extends \Subsite\Theme {
 class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
- 
+
     static function getThemeFolder() {
         return __DIR__;
     }
@@ -16,26 +15,41 @@ class Theme extends \MapasCulturais\Themes\BaseV2\Theme {
 
         $app = App::i();
 
-         // Manifest do five icon
-        $app->hook('GET(site.webmanifest)', function() use ($app) {
-            /** @var \MapasCulturais\Controller $this */
-            $this->json([
-                'icons' => [
-                    [ 'src' => $app->view->asset('img/favicon.192.png', false), 'type' => 'image/png', 'sizes' => '192x192' ],
-                    [ 'src' => $app->view->asset('img/favicon.512.png', false), 'type' => 'image/png', 'sizes' => '512x512' ],
-                ],
-            ]);
+        $this->enqueueStyle("app-v2", "logo-footer", "css/logo-footer.css");
+
+        $app->hook("template(<<*>>.<<*>>.main-footer-links):after", function(){
+            $this->part("logo-footer");
         });
+
 
         $app->hook('template(<<*>>.<<*>>.body):after', function(){
-            $this->part('tawkto--script');
+            $this->part('scripts');
+        });
+
+
+        $app->hook('app.init:after', function () {
+            $imagesList = [];
+            $path = __DIR__."/assets/img/randHome/";
+            $files = dir($path);
+
+            while($_file = $files->read()){
+                if ($_file != '.' && $_file != '..') {
+                    $imagesList[] = "img/randHome/{$_file}";
+                }
+            }
+
+            $files->close();
+
+            $imagesList[] = 'img/home--intro.jpg';
+            $imagesList[] = 'img/home--intro.jpg';
+            $imagesList[] = 'img/home--intro.jpg';
+            $imagesList[] = 'img/home--intro.jpg';
+            $imagesList[] = 'img/home--intro.jpg';
+
+            shuffle($imagesList);
+
+            $this->config['module.home']['home-header'] = $imagesList[0];
+
         });
     }
-
-    // protected function _publishAssets() {
-
-    //     // $this->jsObject['assets']['logo-instituicao'] = $this->asset('img/logo-instituicao.png', false);
-
-    //     // $this->enqueueScript('app', 'hide-fields', 'js/hide-fields.js');
-    // }
 }

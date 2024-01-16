@@ -8,6 +8,7 @@ return [
     'themes.active' => "MapasMT",
 
     'app.lcode' => 'pt_BR',
+
     'homeHeader.banner' => 'img/banner-faq.png',
     'homeHeader.bannerLink' => 'https://mapas.mt.gov.br/perguntas-frequentes/',
     'homeHeader.downloadableLink' => false,

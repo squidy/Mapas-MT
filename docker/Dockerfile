@@ -15,6 +15,7 @@ COPY docker/common/config.d /var/www/config/common.d
 COPY docker/common/lgpd-terms /var/www/config/lgpd-terms
 COPY docker/production/config.d /var/www/config/config.d
 COPY docker/common/mailer.php /var/www/config/mailer.php
+COPY docker/common/template.php /var/www/src/modules/Entities/components/entity-status/template.php
 COPY docker/common/email-templates/_footer.html /var/www/src/modules/MailNotification/templates/pt_BR/
 COPY docker/common/email-templates/_header.html /var/www/src/modules/MailNotification/templates/pt_BR/
 COPY docker/common/email-templates/send_registration.html /var/www/src/modules/MailNotification/templates/pt_BR/
