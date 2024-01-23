@@ -17,7 +17,7 @@ $this->import('
             <span v-if="entity.status == 0">
                 <strong><?= i::__('<u>ATENÇÃO</u><br><br> Este agente está em rascunho.'); ?></strong>
 <!--                <?= i::__('Você precisa <strong>publicar</strong> para exibir para todas as pessoas.') ?> -->
-                <?= i::__('É necessário  <strong>publicar</strong> seu agente para exibir para todas as pessoas e poder se inscrever em editais/oportunidades.<br><br>Para isso, preencha as informações abaixo e clique em <strong>Salvar e publicar</strong> na barra inferior azul desta página.') ?>
+                <?= i::__('É necessário <strong>publicar</strong> seu agente para exibir para todas as pessoas e <u>poder se inscrever em editais/oportunidades</u>.<br><br>Para isso, preencha as informações abaixo e clique em <strong><u>Salvar e publicar</u></strong> na barra inferior azul desta página.') ?>
             </span>
             <span v-if="entity.status == -10">
                 <strong><?= i::__('Este agente está na lixeira.'); ?></strong>

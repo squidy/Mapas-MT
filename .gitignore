@@ -1,6 +1,7 @@
-docker-data
-node_modules
-vendor
 .env
-docker/common/mailer.php
+vendor
+node_modules
+push2github.sh
+docker-data
+docker/postfix-conf.sh
 app-backups

@@ -4,6 +4,7 @@ COPY themes /var/www/src/themes
 COPY plugins /var/www/src/plugins
 
 RUN apt-get update && apt-get install -y tzdata
+
 ENV TZ=America/Cuiaba
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
@@ -11,10 +12,18 @@ WORKDIR /var/www/src
 RUN pnpm install --recursive && pnpm run build 
 WORKDIR /var/www
 
+COPY docker/postfix-conf.sh /root/postfix-conf.sh
+
+ENV DEBIAN_FRONTEND="noninteractive"
+RUN echo "postfix postfix/mailname string mapas.mt.gov.br" | debconf-set-selections && \
+          echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set-selections && \
+          apt-get install -q -y postfix mailutils libsasl2-modules && \
+	  apt-get clean && \
+          /root/postfix-conf.sh
+
 COPY docker/common/config.d /var/www/config/common.d
 COPY docker/common/lgpd-terms /var/www/config/lgpd-terms
 COPY docker/production/config.d /var/www/config/config.d
-COPY docker/common/mailer.php /var/www/config/mailer.php
 COPY docker/common/template.php /var/www/src/modules/Entities/components/entity-status/template.php
 COPY docker/common/email-templates/_footer.html /var/www/src/modules/MailNotification/templates/pt_BR/
 COPY docker/common/email-templates/_header.html /var/www/src/modules/MailNotification/templates/pt_BR/
