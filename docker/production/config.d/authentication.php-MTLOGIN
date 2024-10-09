@@ -9,8 +9,8 @@ $_APP_BASE_URL = $prot_part . $host_part;
 return [
     'auth.provider' => 'OpauthAuthentik',
     'auth.config' => [
-//		'login_url' => 'https://dev.login.mt.gov.br/auth/realms/mt-realm/protocol/openid-connect',
-		'login_url' => 'https://login.mt.gov.br/auth/realms/mt-realm/protocol/openid-connect',
+		'login_url' => 'https://dev.login.mt.gov.br/auth/realms/mt-realm/protocol/openid-connect',
+//		'login_url' => 'https://login.mt.gov.br/auth/realms/mt-realm/protocol/openid-connect',
 //		'logout_url' => 'https://dev.login.mt.gov.br/auth/realms/mt-realm/protocol/openid-connect/logout',
 		'logout_url' => 'https://mapas.mt.gov.br',
 		'client_id' => 'sistema-secel-mapas',
