@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 FROM hacklab/mapasculturais:7.5.1
-=======
-FROM hacklab/mapasculturais:latest
->>>>>>> b07031ab380cc98a6111a9e11f2db2f93038507d
 
 COPY themes /var/www/src/themes
 COPY plugins /var/www/src/plugins
