@@ -2,8 +2,8 @@
 use \MapasCulturais\i;
 
 return [
-    "text:home-header.title" => i::__("<font color='yellow'><b><u>DEVELOPMENT</u></b></font>"),
-    "text:home-header.description" => i::__("AMBIENTE DE DESENVOLVIMENTO DO MAPAS MT<br><br>"),
+    "text:home-header.title" => i::__("Boas vindas ao Mapas MT"),
+    "text:home-header.description" => i::__("O Mapas MT é uma ferramenta de gestão cultural que garante a estruturação de Sistemas de Informações e Indicadores.<br><br>"),
     "text:home-opportunities.description" => i::__("Cadastre-se, participe de editais e oportunidades. Fique ligado!"),
     "text:home-entities.events" => i::__("Você pode pesquisar eventos culturais nos campos de busca do seu interesse que ajudam na  precisão de sua pesquisa. Como usuário cadastrado, você pode incluir seus eventos na plataforma e divulgá-los gratuitamente."),
     "text:home-entities.agents" => i::__("Neste espaço, estão registrados artistas, gestores e produtores; uma rede de atores envolvidos na cena cultural da região. Você pode cadastrar um ou mais agentes (grupos, coletivos, bandas, instituições, empresas, associações, cooperativas e etc)."),
