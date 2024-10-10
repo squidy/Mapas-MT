@@ -4,6 +4,7 @@ $config_plugins = [
         'MultipleLocalAuth' => [ 'namespace' => 'MultipleLocalAuth' ],
 	'RecreatePCacheOnLogin' => [ 'namespace' => 'RecreatePCacheOnLogin' ],
 	'AdminLoginAsUser' => [ 'namespace' => 'AdminLoginAsUser' ],
+        'Accessibility' => [ 'namespace' => 'Accessibility' ],
         'SpamDetector' => [
             'namespace' => 'SpamDetector',
             'config' => [
