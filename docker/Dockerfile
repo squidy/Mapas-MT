@@ -28,6 +28,7 @@ COPY docker/production/config.d /var/www/config/config.d
 COPY docker/production/MTLogin/authentik/authentikStrategy.php /var/www/vendor/opauth/authentik/authentikStrategy.php
 COPY docker/production/MTLogin/OpauthAuthentik.php /var/www/src/core/AuthProviders/OpauthAuthentik.php
 COPY docker/production/home-register/template.php /var/www/src/modules/Home/components/home-register/template.php
+COPY docker/production/home-entities/template.php /var/www/src/modules/Home/components/home-entities/template.php
 COPY docker/common/template.php /var/www/src/modules/Entities/components/entity-status/template.php
 COPY docker/common/email-templates/_footer.html /var/www/src/modules/MailNotification/templates/pt_BR/
 COPY docker/common/email-templates/_header.html /var/www/src/modules/MailNotification/templates/pt_BR/
