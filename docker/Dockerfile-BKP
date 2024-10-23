@@ -25,6 +25,8 @@ RUN echo "postfix postfix/mailname string mapas.mt.gov.br" | debconf-set-selecti
 COPY docker/common/config.d /var/www/config/common.d
 COPY docker/common/lgpd-terms /var/www/config/lgpd-terms
 COPY docker/production/config.d /var/www/config/config.d
+COPY docker/production/MTLogin/authentik/authentikStrategy.php /var/www/vendor/opauth/authentik/authentikStrategy.php
+COPY docker/production/MTLogin/OpauthAuthentik.php /var/www/src/core/AuthProviders/OpauthAuthentik.php
 COPY docker/production/home-register/template.php /var/www/src/modules/Home/components/home-register/template.php
 COPY docker/production/home-entities/template.php /var/www/src/modules/Home/components/home-entities/template.php
 COPY docker/common/template.php /var/www/src/modules/Entities/components/entity-status/template.php
