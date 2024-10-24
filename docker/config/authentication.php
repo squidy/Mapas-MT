@@ -7,6 +7,9 @@ if(substr($host_part,-1) !== '/') $host_part .= '/';
 $_APP_BASE_URL = $prot_part . $host_part;
 
 return [
+//    'auth.provider' => 'Fake',
+//    'auth.config' => [],
+
     'auth.provider' => '\MultipleLocalAuth\Provider',
     'auth.config' => array(
         'salt' => env('AUTH_SALT', null),
@@ -31,9 +34,8 @@ return [
             'Facebook' => array(
                'app_id' => env('AUTH_FACEBOOK_APP_ID', null),
                'app_secret' => env('AUTH_FACEBOOK_APP_SECRET', null),
-               'scope' => env('AUTH_FACEBOOK_SCOPE', 'email'),
+               'scope' => env('AUTH_FACEBOOK_SCOPE', 'email')
             ),
-
             'LinkedIn' => array(
                 'api_key' => env('AUTH_LINKEDIN_API_KEY', null),
                 'secret_key' => env('AUTH_LINKEDIN_SECRET_KEY', null),
@@ -45,13 +47,26 @@ return [
                 'client_id' => env('AUTH_GOOGLE_CLIENT_ID', null),
                 'client_secret' => env('AUTH_GOOGLE_CLIENT_SECRET', null),
                 'redirect_uri' => $_APP_BASE_URL . 'autenticacao/google/oauth2callback',
-                'scope' => env('AUTH_GOOGLE_SCOPE', 'email'),
+                'scope' => env('AUTH_GOOGLE_SCOPE', 'email')
             ),
             'Twitter' => array(
                 'app_id' => env('AUTH_TWITTER_APP_ID', null),
-                'app_secret' => env('AUTH_TWITTER_APP_SECRET', null),
+                'app_secret' => env('AUTH_TWITTER_APP_SECRET', null)
             ),
-
+            'authentik' => array(
+                'visible' => env('MTLOGIN_ENABLED', true),
+                'login_url' => env('MTLOGIN_LOGIN_URL', null),
+                'logout_url' => env('MTLOGIN_LOGOUT_URL', null),
+                'client_id' => env('MTLOGIN_CLIENT_ID', null),
+                'client_secret' => env('MTLOGIN_CLIEN_SECRET', null),
+                'redirect_uri' => env('MTLOGIN_REDIRECT_URI', null),
+                'scope' => env('MTLOGIN_SCOPE', null),
+                'auth_endpoint' => env('MTLOGIN_ENDPOINT', null),
+                'token_endpoint' => env('MTLOGIN_TOKEN', null),
+                'user_info_endpoint' => env('MTLOGIN_USERINFO', null)
+            ),
         ]
     ),
+
 ];
+

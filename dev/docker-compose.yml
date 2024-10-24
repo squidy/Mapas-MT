@@ -19,13 +19,12 @@ services:
       - ../docker-data/private-files:/var/www/var/private-files
       - ../docker-data/logs:/var/www/var/logs
 
-      - ../docker/common/config.d:/var/www/config/common.d
-      - ../docker/production/config.d:/var/www/config/prod.d
+      - ../docker/config/authentication.php:/var/www/config/authentication.php
+      - ../docker/config/common.d/plugins.php:/var/www/config/common.d/plugins.php
 
       - ../app-backups:/app-backups
 
       # themes and plugins
-      - ../plugins/SamplePlugin:/var/www/src/plugins/SamplePlugin
       - ../plugins/MultipleLocalAuth:/var/www/src/plugins/MultipleLocalAuth
       - ../plugins/AdminLoginAsUser:/var/www/src/plugins/AdminLoginAsUser
       - ../plugins/RecreatePCacheOnLogin:/var/www/src/plugins/RecreatePCacheOnLogin

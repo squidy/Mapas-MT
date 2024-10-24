@@ -1,4 +1,4 @@
-FROM hacklab/mapasculturais:7.5.4
+FROM hacklab/mapasculturais:7.5.6
 
 COPY themes /var/www/src/themes
 COPY plugins /var/www/src/plugins
@@ -22,14 +22,12 @@ RUN echo "postfix postfix/mailname string mapas.mt.gov.br" | debconf-set-selecti
 	  apt-get clean && \
           /root/postfix-conf.sh
 
-COPY docker/common/config.d /var/www/config/common.d
-COPY docker/common/lgpd-terms /var/www/config/lgpd-terms
-COPY docker/production/config.d /var/www/config/config.d
-COPY docker/production/home-register/template.php /var/www/src/modules/Home/components/home-register/template.php
-COPY docker/production/home-entities/template.php /var/www/src/modules/Home/components/home-entities/template.php
-COPY docker/common/template.php /var/www/src/modules/Entities/components/entity-status/template.php
-COPY docker/common/email-templates/_footer.html /var/www/src/modules/MailNotification/templates/pt_BR/
-COPY docker/common/email-templates/_header.html /var/www/src/modules/MailNotification/templates/pt_BR/
-COPY docker/common/email-templates/send_registration.html /var/www/src/modules/MailNotification/templates/pt_BR/
-COPY docker/common/email-templates/start_registration.html /var/www/src/modules/MailNotification/templates/pt_BR/
-COPY docker/production/conf/agent-types.php /var/www/src/conf/agent-types.php
+COPY docker/config/0.main.php /var/www/config/0.main.php
+COPY docker/config/authentication.php /var/www/config/authentication.php
+COPY docker/config/lgpd.php /var/www/config/lgpd.php
+COPY docker/config/logo.php /var/www/config/logo.php
+COPY docker/config/maps.php /var/www/config/maps.php
+COPY docker/config/common.d/plugins.php /var/www/config/common.d/plugins.php
+COPY docker/config/common.d/texts.php /var/www/config/common.d/texts.php
+COPY docker/config/lgpd-terms /var/www/config/lgpd-terms
+COPY docker/src/modules/Entities/components/entity-status/template.php /var/www/src/modules/Entities/components/entity-status/template.php
