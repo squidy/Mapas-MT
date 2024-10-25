@@ -48,6 +48,7 @@ services:
       - ./app-backups:/app-backups
     links:
       - db
+      - postfix
       - redis
       - sessions
     environment:
@@ -56,6 +57,7 @@ services:
 
     depends_on:
       - db
+      - postfix
       - redis
       - sessions
 
@@ -85,6 +87,15 @@ services:
       - ./docker-data/db-data:/var/lib/postgresql/data
       - ./app-backups:/app-backups
 
+  postfix:
+    image: juanluisbaptiste/postfix:latest
+    ports:
+    - "25:25"
+    env_file:
+      - .env
+    restart: always
+    volumes:
+     - /etc/localtime:/etc/localtime:ro
 
 ## Em ambiente de homologação pode ser uma boa ideia utilizar o mailhog para testar 
 ## o envio de emails e também prevenir que emails de tete sejam disparados acidentalmente 
